@@ -1,0 +1,36 @@
+{extend name="base/base" /}
+{block name="title"}
+{$data['title']}
+{/block}
+{block name="myTitle"}
+{$data['title']}
+{/block}
+{block name="content"}
+<div class="container-wrap">
+    <div class="container">
+        <div class="contar-wrap">
+            <h4 class="item-title">
+                <p>
+                    <i class="layui-icon layui-icon-speaker"></i>公告：<span>{$data['announcement']}</span>
+                </p>
+            </h4>
+            {foreach $data['data'] as $key => $val}
+            <div class="item">
+                <div class="item-box  layer-photos-demo1 layer-photos-demo">
+                    <h3><a href="details.html">{$val['title']}</a></h3>
+                    <h5>发布于：<span>{$val['create_time']}</span></h5>
+                    <p>{$val['content']}</p>
+                </div>
+                <div class="comment count">
+                    <a href="details.html#comment">评论</a>
+                    <a href="javascript:;" class="like">点赞</a>
+                </div>
+            </div>
+            {/foreach}
+        </div>
+        <div class="item-btn">
+            <button class="layui-btn layui-btn-normal">下一页</button>
+        </div>
+    </div>
+</div>
+{/block}
